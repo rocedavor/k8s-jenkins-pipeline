@@ -1,13 +1,13 @@
 #!/usr/bin/groovy
 
-podTemplate(label: 'pipeline-cleanup-pod', containers: [
+podTemplate(label: 'jenkins', containers: [
     containerTemplate(name: 'helm', image: 'lachlanevenson/k8s-helm:v2.4.2', ttyEnabled: true, command: 'cat'),
     containerTemplate(name: 'kubectl', image: 'lachlanevenson/k8s-kubectl:v1.6.6', ttyEnabled: true, command: 'cat')
 ],
 volumes:[
     hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock'),
 ]){
-    node ('pipeline-cleanup-pod') {
+    node ('jenkins') {
         properties([
             pipelineTriggers([
                 [$class: 'GenericTrigger',
