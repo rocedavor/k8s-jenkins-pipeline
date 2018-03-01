@@ -7,7 +7,7 @@ podTemplate(label: 'jenkins', containers: [
 volumes:[
     hostPathVolume(mountPath: '/var/run/docker.sock', hostPath: '/var/run/docker.sock'),
 ]){
-    node ('jenkins') {
+    node ('master') {
         properties([
             pipelineTriggers([
                 [$class: 'GenericTrigger',
