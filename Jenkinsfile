@@ -1,6 +1,6 @@
 #!/usr/bin/groovy
 
-podTemplate(label: 'jenkins', containers: [
+podTemplate(label: 'master', containers: [
     containerTemplate(name: 'helm', image: 'lachlanevenson/k8s-helm:v2.4.2', ttyEnabled: true, command: 'cat'),
     containerTemplate(name: 'kubectl', image: 'lachlanevenson/k8s-kubectl:v1.6.6', ttyEnabled: true, command: 'cat')
 ],
